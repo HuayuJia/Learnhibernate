@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	<hibernate-configuration>
+		<session-factory>
+		<!-- 第一部分：配置数据库 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///hibernate_test01</property><!-- 注意数据库需要自己创建 -->
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">931210</property><!-- 注意密码为自己数据库的密码  -->
+		
+		
+		<!-- 第二部分：配置Hibernate附加功能是否开启 -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property><!-- 输出底层sql语句格式 -->
+		<property name="hibernate.hbm2ddl.auto">update</property><!-- 自动创建表 ,如果没有这个需要自己创建表-->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property><!-- 允许方言 -->
+		
+		<!-- 第三部分： 把映射文件放到核心配置文件中 必须的-->
+		<mapping resource="cn/huayu/entity/User.hbm.xml"></mapping>
+		</session-factory>
+	</hibernate-configuration>
